@@ -10,6 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require redactor.min.css
  *= require_tree .
  *= require_self
  */
+
+.table-bordered {
+   border: 1px solid #d6d6d6;
+}
+.table {
+   width: 100%;
+   max-width: 100%;
+   margin-bottom: 20px;
+}
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+}

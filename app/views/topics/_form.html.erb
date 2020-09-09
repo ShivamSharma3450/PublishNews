@@ -1,4 +1,4 @@
-<%= form_with(model: topic, local: true) do |form| %>
+<%= form_with(model: topic, local: true, html: {class: "needs-validation container mb-4 border border-light pb-3 pt-3 shadow", novalidate: false}) do |form| %>
   <% if topic.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
@@ -11,22 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="my-3">
+    <label for="validationCustom01">Title</label>
+    <%= form.text_field :title, class: "form-control", id: "validationCustom01", required: true %>
+    <div class="valid-feedback">Please Provide a Title!</div>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+  <div class="my-3">
+    <label for="validationCustom02">Description</label>
+    <%= form.text_area :body , class: "form-control redactor-textarea", id: "validationCustom02", required: true %>
+    <div class="valid-feedback">Description is required!</div>
   </div>
 
-  <div class="field">
-    <%= form.label :tags, 'Tags (separated by commas)' %>
-    <%= form.text_field :tag_list %>
+  <div class="my-3">
+    <label for="validationCustom03">Tags (separated by commas)</label>
+    <%= form.text_field :tag_list, class: "form-control", id: "validationCustom03", required: true %>
+    <div class="valid-feedback">Attach atleast a Tag!</div>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+$R('.redactor-textarea', {
+  imageFigure: false,
+  plugins: ['table', 'alignment', 'addbutton', 'nofollow'],
+  imageUpload: '/upload/images',
+  minHeight: '400px'
+});
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+

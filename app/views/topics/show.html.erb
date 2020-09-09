@@ -7,8 +7,8 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @topic.body %>
+  <%= @topic.body.gsub("<table>","<table class='table table-bordered'>").html_safe %>
 </p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%= link_to 'Edit', edit_topic_path(@topic),class: "btn btn-outline-info btn-sm" %> |
+<%= link_to 'Back', topics_path,class: "btn btn-outline-primary btn-sm" %>

@@ -13,4 +13,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require redactor/redactor.min.js
+//= require redactor/alignment.min.js
+//= require redactor/table.min.js
+//= require redactor/nofollow.js
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+  $R('.redactor-textarea', {
+    imageFigure: false,
+    plugins: ['table', 'alignment', 'addbutton', 'nofollow'],
+    imageUpload: '/upload/images',
+    minHeight: '400px'
+  });
+});
