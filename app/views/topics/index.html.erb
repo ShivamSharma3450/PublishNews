@@ -1,30 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Topics</h1>
-
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @topics.each do |topic| %>
-      <tr>
-        <td><%= topic.title %></td>
-        <td><%= topic.body.gsub("<table>","<table class='table table-bordered'>").html_safe %></td>
-        <td><p>Tags: <%= raw topic.tag_list.map { |t| link_to t, topics_path(tag: t) }.join(', ') %></p></td>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
+<div><%= link_to 'LogIn / SignUp', login_path, class: "btn btn-outline-primary" %></div>
 <br>
 <% @topics.each do |topic| %>
 <div class="border shadow m-3 p-4 bg-light text-dark">
